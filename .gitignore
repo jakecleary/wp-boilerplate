@@ -1,0 +1,14 @@
+/*
+
+.DS_Store
+.sass-chache
+*.sublime*
+
+!.gitignore
+!README.md
+
+!wp-content/
+wp-content/*
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/wpbp
