@@ -11,6 +11,9 @@ naming convention:
 * Append logos with `lg_`
 * Append slides with `sl_`
 
+All files names should be written in camelCase, with the first letter
+being lowercase.
+
 ##Sprites
 
 Sprites will actually be folders containing individual images for each sprite
