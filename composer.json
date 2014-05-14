@@ -1,0 +1,29 @@
+{
+  "description": "A simple Worpress boilerplate",
+  "authors": [
+    {
+      "name": "Jake Cleary",
+      "email": "shout@jakecleary.net",
+      "homepage": "https://github.com/clear-y"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "theme",
+    "boilerplate"
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    }
+  ],
+  "require": {
+    "wpackagist-plugin/advanced-custom-fields": "*"
+  },
+  "extra": {
+    "installer-paths": {
+      "../../plugins/{$name}/": ["type:wordpress-plugin"]
+    }
+  }
+}
