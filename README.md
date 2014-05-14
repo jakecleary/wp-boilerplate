@@ -4,7 +4,7 @@
 This is a simple theme setup that I'll use as a boilerplate for any standard
 Wordpress projects.
 
-**Including the following:**
+##Overview
 
 * Base files containing the bare minimum markup to reduce deletions
 * A simple, consistant folder structure for assets
@@ -18,3 +18,42 @@ Wordpress projects.
     * [Advanced Custom Fields](https://github.com/elliotcondon/acf)
     * [Duplicate Post](https://wordpress.org/plugins/duplicate-post/)
     * [Regenerate Thumbnails](http://wordpress.org/plugins/regenerate-thumbnails/)
+
+##Structure
+
+The theme has the following structure (simplified for presentational purposes):
+
+```
+.
+├── assets
+│   ├── img
+│   ├── js
+│   │   ├── src
+│   │   │   └── main.js
+│   │   └── vendor
+│   └── styles
+│       ├── modules
+│       │   └── ...
+│       ├── partials
+│       │   └── ...
+│       ├── vendor
+│       │   └── ...
+│       └── main.sass
+├── inc
+│   └── ...
+├── lib
+│   ├── helpers.php
+│   └── wpSpecific.php
+├── public
+│   └── ...
+├── 404.php
+├── footer.php
+├── front-page.php
+├── functions.php
+├── header.php
+├── index.php
+├── page.php
+├── sidebar.php
+├── single.php
+└── style.css
+```
