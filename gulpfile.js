@@ -21,7 +21,7 @@ var gulp = require('gulp'),
     lr = require('tiny-lr'),
     server = lr(),
     // sass
-    sassDir = 'assets/sass',
+    sassDir = 'assets/styles',
     targetCssDir = 'public/css',
     // js
     jsDir = 'assets/js',
