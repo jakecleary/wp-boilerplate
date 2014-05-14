@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     // css
-    sass = require('gulp-ruby-sass'),
+    compass = require('gulp-compass'),
     autoprefix = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     // js
@@ -22,7 +22,7 @@ var gulp = require('gulp'),
     server = lr(),
     // sass
     sassDir = 'assets/styles',
-    targetCssDir = 'public/css',
+    targetCssDir = 'public/styles',
     // js
     jsDir = 'assets/js',
     targetJsDir = 'public/js',
@@ -30,9 +30,14 @@ var gulp = require('gulp'),
     imgDir = 'assets/img/**/*',
     targetImgDir = 'public/img';
 
-gulp.task('css', function() {
-    return gulp.src(sassDir + '/main.sass')
-        .pipe(sass({ style: 'compressed'}).on('error', util.log))
+gulp.task('compass', function() {
+    gulp.src(sassDir + '/**/*.sass')
+        .pipe(compass({
+            config_file: './config.rb',
+            sass: 'assets/styles',
+            css: 'public/styles',
+            image: 'assets/img'
+        }))
         .pipe(autoprefix('last 4 version'))
         .pipe(gulp.dest(targetCssDir));
 });
@@ -57,11 +62,11 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(sassDir + '/**/*.sass', ['css']);
+    gulp.watch(sassDir + '/**/*.sass', ['compass']);
     gulp.watch(jsDir + '/**/*.js', ['js']);
     gulp.watch(imgDir + '/**/*', ['img']);
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('css', 'js', 'img', 'watch');
+    gulp.start('compass', 'js', 'img', 'watch');
 });

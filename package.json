@@ -16,6 +16,7 @@
     "gulp-jshint": "^1.5.0",
     "gulp-imagemin": "^0.1.5",
     "gulp-util": "^2.2.14",
-    "gulp-strip-debug": "^0.3.0"
+    "gulp-strip-debug": "^0.3.0",
+    "gulp-compass": "~1.1.9"
   }
 }
