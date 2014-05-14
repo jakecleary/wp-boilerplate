@@ -18,7 +18,9 @@
       "url": "http://wpackagist.org"
     }
   ],
-  "require": {
+  "require-dev": {
+    "wpackagist-plugin/duplicate-post": "*",
+    "wpackagist-plugin/ajax-thumbnail-rebuild": "*",
     "wpackagist-plugin/advanced-custom-fields": "*"
   },
   "extra": {

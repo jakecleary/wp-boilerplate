@@ -3,8 +3,11 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4c347d0a7df58d87d631ae1169456cb1",
+    "hash": "7e0772928b700e913dc83c02480d8ce0",
     "packages": [
+
+    ],
+    "packages-dev": [
         {
             "name": "composer/installers",
             "version": "v1.0.13",
@@ -111,10 +114,53 @@
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/advanced-custom-fields/"
+        },
+        {
+            "name": "wpackagist-plugin/ajax-thumbnail-rebuild",
+            "version": "1.12",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/ajax-thumbnail-rebuild/",
+                "reference": "tags/1.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/ajax-thumbnail-rebuild.1.12.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/ajax-thumbnail-rebuild": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/ajax-thumbnail-rebuild/"
+        },
+        {
+            "name": "wpackagist-plugin/duplicate-post",
+            "version": "2.6",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/duplicate-post/",
+                "reference": "tags/2.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/duplicate-post.2.6.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/duplicate-post": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/duplicate-post/"
         }
-    ],
-    "packages-dev": [
-
     ],
     "aliases": [
 
