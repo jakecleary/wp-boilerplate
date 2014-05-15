@@ -20,6 +20,8 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     lr = require('tiny-lr'),
     server = lr(),
+    // assets
+    assetsDir = 'assets/',
     // sass
     sassDir = 'assets/styles',
     targetCssDir = 'public/styles',
@@ -39,7 +41,8 @@ gulp.task('compass', function() {
             image: 'assets/img'
         }))
         .pipe(autoprefix('last 4 version'))
-        .pipe(gulp.dest(targetCssDir));
+        .pipe(gulp.dest(targetCssDir))
+        .pipe(livereload());
 });
 
 gulp.task('js', function() {
@@ -47,13 +50,15 @@ gulp.task('js', function() {
         .pipe(concat('functions.min.js'))
         .pipe(strip())
         .pipe(uglify())
-        .pipe(gulp.dest(targetJsDir));
+        .pipe(gulp.dest(targetJsDir))
+        .pipe(livereload());
 });
 
 gulp.task('img', function() {
     gulp.src(imgDir)
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest(targetImgDir));
+        .pipe(gulp.dest(targetImgDir))
+        .pipe(livereload());
 });
 
 gulp.task('clean', function() {
@@ -65,6 +70,10 @@ gulp.task('watch', function() {
     gulp.watch(sassDir + '/**/*.sass', ['compass']);
     gulp.watch(jsDir + '/**/*.js', ['js']);
     gulp.watch(imgDir + '/**/*', ['img']);
+    var server = livereload();
+    gulp.watch('*').on('change', function(file) {
+        server.changed(file.path);
+    });
 });
 
 gulp.task('default', ['clean'], function() {

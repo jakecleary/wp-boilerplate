@@ -1,16 +1,17 @@
 !.gitignore
 !README.md
 
-#NPM
+# NPM
 node_modules
 
-#bower
-public/bower_componants
-
-#composer
+# composer
 /vendor
 
-#generic
+#theme
+public/*
+!public/README.md
+
+# generic
 .DS_Store
 .sass-cache
 *.sublime*
