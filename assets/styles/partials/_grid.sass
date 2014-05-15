@@ -1,0 +1,111 @@
+.col
+    float: left
+    width: 100%
+    padding: 10px
+
+.container
+    position: relative
+    width: 90%
+    max-width: $site_width
+    margin: auto
+    @extend %clearfix
+
+.group
+    @extend %clearfix
+    margin-left: -10px
+    margin-right: -10px
+
+%cl-1_12
+    width: 8.333333333333336%
+%cl-1_6
+    width: 16.66666666666667%
+%cl-1_4
+    width: 25%
+%cl-1_3
+    width: 33.333333333333333633%
+%cl-5_12
+    width: 41.66666666666667%
+%cl-1_2
+    width: 50%
+%cl-7_12
+    width: 58.333333333333336%
+%cl-2_3
+    width: 66.66666666666667%
+%cl-3_4
+    width: 75%
+%cl-5_6
+    width: 83.333333333333336%
+%cl-11
+    width: 91.66666666666667%
+%cl-full
+    width: 100%
+
++bp('small')
+    %sm-1_12
+        width: 8.333333333333336%
+    %sm-1_6
+        width: 16.66666666666667%
+    %sm-1_4
+        width: 25%
+    %sm-1_3
+        width: 33.333333333333333633%
+    %sm-1_2
+        width: 50%
+    %sm-2_3
+        width: 66.66666666666667%
+
+// tablet portrait
+
++bp('medium')
+    %md-1_4
+        width: 25%
+    %md-1_3
+        width: 33.333333333333333633%
+    %md-1_2
+        width: 50%
+    %md-2_3
+        width: 66.66666666666667%
+    %md-3_4
+        width: 75%
+
+// regular desktop
+
++bp('large')
+    %lg-1_4
+        width: 25%
+    %lg-1_3
+        width: 33.333333333333333633%
+    %lg-1_2
+        width: 50%
+    %lg-2_3
+        width: 66.66666666666667%
+    %lg-3_4
+        width: 75%
+
+// large screens/desktop
+
++bp('x-large')
+    %xl-1_12
+        width: 8.333333333333336%
+    %xl-1_6
+        width: 16.66666666666667%
+    %xl-1_4
+        width: 25%
+    %xl-1_3
+        width: 33.333333333333333633%
+    %xl-5_12
+        width: 41.66666666666667%
+    %xl-1_2
+        width: 50%
+    %xl-7_12
+        width: 58.333333333333336%
+    %xl-2_3
+        width: 66.66666666666667%
+    %xl-3_4
+        width: 75%
+    %xl-5_6
+        width: 83.333333333333336%
+    %xl-11
+        width: 91.66666666666667%
+    %xl-full
+        width: 100%
