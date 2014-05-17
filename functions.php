@@ -9,5 +9,7 @@ if ( defined( 'USE_PRODUCTION_ACF' ) ) {
     include_once('lib/acf.php');
 }
 
+require_once('lib/_config.php');
 require_once('lib/helpers.php');
 require_once('lib/wpSpecific.php');
+require_once('lib/bodyClasses.php');
