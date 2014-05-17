@@ -10,7 +10,7 @@
 $theme_config = array(
     'thumbnail_support'   => true,
     'enable_theme_editor' => false,
-    'show_admin_bar'      => ture,
+    'show_admin_bar'      => true,
     'woocommerce_support' => false,
 );
 
