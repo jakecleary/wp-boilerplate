@@ -101,6 +101,8 @@ class Templater {
 
 	/**
 	 * Parse a file with the {{ }} tag
+	 * @param file to parse
+	 * @param the variables
 	 */
 	private static function parse($file, $vars) {
 
@@ -110,11 +112,19 @@ class Templater {
 			$file = preg_replace($pattern, $value, $file);
 		}
 
+		// Let's search for partial inclusions
+		// ~partial_name~
+		$file = preg_replace_callback('/~([a-zA-Z0-9_]+)~/', function($matches) use($vars) {
+			$file = preg_replace('/[^a-zA-Z0-9_]+/', '', $matches[0]) . '.php';
+			$path = PARTIAL . $file;
+			var_dump($path);
+			return self::parse($path, $vars); // BUG HERE
+		}, $file);
 
 		if(!!$file) {
-			echo $file;
+			return $file;
 		} else {
-			echo 'failed';
+			return 'failed';
 		}
 	}
 }
