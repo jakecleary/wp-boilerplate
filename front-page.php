@@ -1,5 +1,22 @@
-<?php get_header(); ?>
+<?php 
 
-    <!-- Content here -->
+// Short hand way of doing things
+$header = array('blah' => 'welcome to the site');
 
-<?php get_footer(); ?>
+$content = array(
+  'page' => 'page',
+  'path' => '/path/to/page/file/', // This is optional
+  'vars' => array('variable' => 'craig')
+);
+
+$footer = array();
+$globals = array();
+
+Templater::render(array(
+    'header' => $header,
+    'content' => $content,
+    'footer' => $footer,
+    'globals' => $globals
+));
+
+?>
