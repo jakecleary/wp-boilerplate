@@ -13,3 +13,7 @@ require_once('lib/_config.php');
 require_once('lib/helpers.php');
 require_once('lib/wpSpecific.php');
 require_once('lib/bodyClasses.php');
+
+
+// Include Templater
+require_once('lib/Templater/templater.php');

@@ -15,6 +15,8 @@ $theme_config = array(
 );
 
 // Constants
-
-define( 'JS', get_template_directory_uri() . '/assets/js/' );
-define( 'IMG', get_template_directory_uri() . '/assets/img/' );
+define( 'THEME_PATH' , get_template_directory_uri() . '/');
+define( 'JS', THEME_PATH . 'assets/js/' );
+define( 'IMG', THEME_PATH . 'assets/img/' );
+define( 'LIB', THEME_PATH . 'lib/' );
+define( 'INC', THEME_PATH . 'inc/');
