@@ -60,9 +60,20 @@ class Templater {
 	 * @param all of the variables to pass to the parts
 	 */
 	public static function render($vars = array()) {
+		if(isset($vars['globals'])) {
+			$globals = $vars['globals'];
+		} else {
+			$globals = false;
+		}
+
 		if(isset($vars['header'])) {
 			$header = $vars['header'];
-			Templater::header($vars['header']);
+
+			if($globals != false) {
+				$header = array_merge($header, $globals);
+			}
+
+			Templater::header($header);
 		}
 		
 		if(isset($vars['content'])) {
@@ -70,12 +81,21 @@ class Templater {
 			$page = (isset($content['page']) ? $content['page'] : 'index');
 			$path = (isset($content['path']) ? $content['path'] : INC);
 			$v = (isset($content['vars']) ? $content['vars'] : array());
+
+			if($globals != false) {
+				$v = array_merge($v, $globals);
+			}
 			Templater::content($page, $path, $v);
 		}
 
 		if(isset($vars['footer'])) {
 			$footer = $vars['footer'];
-			Templater::footer($vars['footer']);
+
+			if($globals != false) {
+				$footer = array_merge($footer, $globals);
+			}
+
+			Templater::footer($footer);
 		}
 	}
 
@@ -98,5 +118,3 @@ class Templater {
 		}
 	}
 }
-
-//bloginfo('name'); wp_title(); body_classes(); bloginfo('template_directory');
