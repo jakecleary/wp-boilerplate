@@ -22,8 +22,8 @@ var gulp = require('gulp'),
     server = lr(),
     // assets
     assetsDir = 'assets/',
-    // sass
-    sassDir = 'assets/styles',
+    // scss
+    scssDir = 'assets/styles',
     targetCssDir = 'public/styles',
     // js
     jsDir = 'assets/js',
@@ -33,7 +33,7 @@ var gulp = require('gulp'),
     targetImgDir = 'public/img';
 
 gulp.task('compass', function() {
-    gulp.src(sassDir + '/**/*.sass')
+    gulp.src(scssDir + '/**/*.scss')
         .pipe(compass({
             config_file: './config.rb',
             sass: 'assets/styles',
@@ -67,7 +67,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(sassDir + '/**/*.sass', ['compass']);
+    gulp.watch(scssDir + '/**/*.scss', ['compass']);
     gulp.watch(jsDir + '/**/*.js', ['js']);
     gulp.watch(imgDir + '/**/*', ['img']);
     var server = livereload();

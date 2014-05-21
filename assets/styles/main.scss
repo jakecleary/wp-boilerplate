@@ -5,9 +5,9 @@
 // So any variables, placeholders, and mixins belong here.
 //
 
-@import modules/vars
-@import modules/placeholders
-@import modules/mixins
+@import "modules/vars";
+@import "modules/placeholders";
+@import "modules/mixins";
 
 //
 // Compass
@@ -16,8 +16,8 @@
 // See http://compass-style.org/reference/compass/ for reference.
 //
 
-@import compass/css3
-@import compass/typography
+@import "compass/css3";
+@import "compass/typography";
 
 //
 // Partials
@@ -26,14 +26,14 @@
 // Page templates should have their own partial file specific to that layout.
 //
 
-@import partials/reset
-@import partials/grid
-@import partials/typography
-@import partials/buttons
-@import partials/forms
-@import partials/header
-@import partials/footer
-@import partials/sidebar
+@import "partials/reset";
+@import "partials/grid";
+@import "partials/typography";
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/sidebar";
 
 //
 // Vendor

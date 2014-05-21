@@ -1,4 +1,4 @@
-preferred_syntax = :sass
+preferred_syntax = :scss
 sass_dir = 'assets/styles'
 css_dir = 'public/styles'
 images_dir = 'assets/img'
