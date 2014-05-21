@@ -1,14 +1,14 @@
 #/assets/styles
 
-This the is the directory for any SASS files.
+This the is the directory for any SCSS files.
 
 ##/modules
 
-Any SASS that doesn't directly output CSS goes here.
+Any SCSS that doesn't directly output CSS goes here.
 
 ##/partials
 
-SASS that directly outputs CSS should be split up into files with single
+SCSS that directly outputs CSS should be split up into files with single
 responsibilities and placed here.
 
 ##/vendor
