@@ -1,7 +1,8 @@
 preferred_syntax = :scss
 sass_dir = 'assets/styles'
 css_dir = 'public/styles'
-images_dir = 'assets/img'
+images_dir = 'assets/sprites'
+generated_images_dir = 'public/sprites'
 javascripts_dir = 'assets/js'
 relative_assets = true
 line_comments = true
