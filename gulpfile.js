@@ -28,11 +28,9 @@ var gulp = require('gulp'),
     jsDir = 'assets/js',
     targetJsDir = 'public/js',
     // Images
-    imgDir = 'assets/img/**/*',
-    targetImgDir = 'public/img',
-    // Sprites
-    spriteDir = 'assets/sprites',
-    targetSpriteDir = 'public/sprites';
+    compassImgDir = 'assets/img'
+    imgDir = 'assets/img/*.*',
+    targetImgDir = 'public/img';
 
 //
 // Compass/Scss task
@@ -47,7 +45,7 @@ gulp.task('compass', function() {
             config_file: './config.rb',
             sass: scssDir,
             css: targetCssDir,
-            image: spriteDir
+            image: compassImgDir
         }))
         .pipe(autoprefix('last 4 version'))
         .pipe(gulp.dest(targetCssDir));
@@ -85,7 +83,7 @@ gulp.task('img', function() {
 // This simply deletes everything inside /public.
 //
 gulp.task('clean', function() {
-  return gulp.src([targetCssDir, targetJsDir, targetImgDir, targetSpriteDir], {read: false})
+  return gulp.src([targetCssDir, targetJsDir, targetImgDir], {read: false})
     .pipe(clean());
 });
 
@@ -98,8 +96,7 @@ gulp.task('clean', function() {
 gulp.task('watch', function() {
     gulp.watch(scssDir + '/**/*.scss', ['compass']);
     gulp.watch(jsDir + '/**/*.js', ['js']);
-    gulp.watch(imgDir + '/**/*', ['img']);
-    gulp.watch(spriteDir + '/**/*', ['compass']);
+    gulp.watch(imgDir, ['img']);
     var server = livereload();
     gulp.watch('*').on('change', function(file) {
         server.changed(file.path);
