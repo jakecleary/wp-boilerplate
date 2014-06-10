@@ -20,6 +20,10 @@ table {
     border-collapse: separate;
     border-spacing: 0;
 }
+input,
+textarea {
+    font-family: inherit;
+}
 
 // WordPress specific
 .size-auto,
