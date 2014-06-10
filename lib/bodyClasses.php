@@ -43,8 +43,14 @@ function body_classes() {
     // Echo is_term_(term_name)
     $tax_slug = get_query_var( 'taxonomy' );
     $term_slug = get_query_var( 'term' );
-    if ( $tax_slug != null && $tax_slug != null ) {
+    if ( $tax_slug != null && $term_slug != null ) {
         echo "is_tax_$tax_slug is_term_$term_slug ";
+    }
+
+    // Echo is_post_type_(post_type)
+    $post_type = get_post_type( $post );
+    if ( $post_type != null ) {
+        echo "is_post_type_$post_type ";
     }
 
     // Woocommerce
