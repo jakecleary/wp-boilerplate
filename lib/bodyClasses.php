@@ -54,7 +54,7 @@ function body_classes() {
     }
 
     // Woocommerce
-    if ( $theme_config['woocommerce_support'] === true ) {
+    if ( $theme_config['enable_woocommerce_support'] === true ) {
         if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
             echo "is_shop_page is_woocommerce ";
         }

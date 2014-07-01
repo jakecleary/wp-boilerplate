@@ -8,10 +8,10 @@
 */
 
 $theme_config = array(
-    'thumbnail_support'   => true,
-    'enable_theme_editor' => false,
-    'show_admin_bar'      => true,
-    'woocommerce_support' => false,
+    'enable_thumbnail_support'   => true,
+    'enable_theme_editor'       => false,
+    'enable_admin_bar'          => true,
+    'enable_woocommerce_support' => false,
 );
 
 // Constants
