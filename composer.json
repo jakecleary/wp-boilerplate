@@ -1,31 +1,35 @@
 {
-  "description": "A simple Worpress boilerplate",
-  "authors": [
-    {
-      "name": "Jake Cleary",
-      "email": "shout@jakecleary.net",
-      "homepage": "https://github.com/clear-y"
+    "name": "WPBP",
+    "description": "A simple Worpress boilerplate",
+    "authors": [
+        {
+            "name": "Jake Cleary",
+            "email": "shout@jakecleary.net",
+            "homepage": "https://github.com/clear-y"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "theme",
+        "boilerplate",
+        "composer",
+        "gulp"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://wpackagist.org"
+        }
+    ],
+    "require-dev": {
+        "wpackagist-plugin/duplicate-post": "*",
+        "wpackagist-plugin/ajax-thumbnail-rebuild": "*",
+        "wpackagist-plugin/advanced-custom-fields": "4.*",
+        "wpackagist-plugin/bulk-creator": "1.*"
+    },
+    "extra": {
+        "installer-paths": {
+            "../../plugins/{$name}/": ["type:wordpress-plugin"]
+        }
     }
-  ],
-  "keywords": [
-    "wordpress",
-    "theme",
-    "boilerplate"
-  ],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://wpackagist.org"
-    }
-  ],
-  "require-dev": {
-    "wpackagist-plugin/duplicate-post": "*",
-    "wpackagist-plugin/ajax-thumbnail-rebuild": "*",
-    "wpackagist-plugin/advanced-custom-fields": "*"
-  },
-  "extra": {
-    "installer-paths": {
-      "../../plugins/{$name}/": ["type:wordpress-plugin"]
-    }
-  }
 }
