@@ -88,8 +88,7 @@ gulp.task('js', function() {
 gulp.task('img', function() {
     gulp.src(paths.assets.img.files)
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest(paths.public.img))
-        .pipe(notify('Images task complete.'));
+        .pipe(gulp.dest(paths.public.img));
 });
 
 //
