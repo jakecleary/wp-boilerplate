@@ -8,8 +8,7 @@ Wordpress projects.
 
 * Base files containing the bare minimum markup to reduce deletions
 * A simple, consistant folder structure for assets
-* A `package.json` for any development dependency management
-* A `bower.json` files for managing front-end dependencies
+* A `package.json` for any dependency management
 * A `gulpfile.js` for handling:
     * SASS to CSS concantination/minification
     * JS concantination/minification
@@ -27,21 +26,44 @@ The theme has the following structure (simplified for presentational purposes):
 .
 ├── assets
 │   ├── img
+│   │   └── ...
 │   ├── js
 │   │   ├── src
 │   │   │   └── main.js
 │   │   └── vendor
+│   │       └── ...
 │   └── styles
-│       ├── modules
-│       │   └── ...
+│       ├── mixins
+│       │   ├── _breakpoints.scss
+│       │   └── _general.scss
 │       ├── partials
-│       │   └── ...
+│       │   ├── _footer.scss
+│       │   ├── _header.scss
+│       │   ├── _home.scss
+│       │   ├── _layout.scss
+│       │   ├── _reset.scss
+│       │   ├── _sidebar.scss
+│       │   └── _typography.scss
+│       ├── placeholders
+│       │   ├── _buttons.scss
+│       │   ├── _clearfix.scss
+│       │   ├── _forms.scss
+│       │   ├── _grid.scss
+│       │   ├── _layout.scss
+│       │   └── _typography.scss
+│       ├── vars
+│       │   ├── _colors.scss
+│       │   ├── _grid.scss
+│       │   ├── _misc.scss
+│       │   └── _typography.scss
 │       ├── vendor
 │       │   └── ...
-│       └── main.sass
+│       └── main.scss
 ├── inc
 │   └── ...
 ├── lib
+│   ├── _config.php
+│   ├── bodyClasses.php
 │   ├── helpers.php
 │   └── wpSpecific.php
 ├── public
