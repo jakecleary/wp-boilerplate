@@ -1,6 +1,6 @@
 <?php
 
-if ( $theme_config['thumbnail_support'] === false )
+if ( $theme_config['enable_thumbnail_support'] === true )
 {
     add_theme_support('post-thumbnails');
 
@@ -23,7 +23,7 @@ if ( $theme_config['enable_theme_editor'] === false )
 // Disable the admin bar
 //
 
-if ( $theme_config['show_admin_bar'] === false )
+if ( $theme_config['enable_admin_bar'] === false )
 {
     add_filter('show_admin_bar', '__return_false');
 }

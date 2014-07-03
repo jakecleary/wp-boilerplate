@@ -8,13 +8,15 @@
 */
 
 $theme_config = array(
-    'thumbnail_support'   => true,
-    'enable_theme_editor' => false,
-    'show_admin_bar'      => true,
-    'woocommerce_support' => false,
+    'enable_thumbnail_support'   => true,
+    'enable_theme_editor'       => false,
+    'enable_admin_bar'          => true,
+    'enable_woocommerce_support' => false,
 );
 
 // Constants
-
-define( 'JS', get_template_directory_uri() . '/assets/js/' );
-define( 'IMG', get_template_directory_uri() . '/assets/img/' );
+define('THEME_ROOT', get_template_directory_uri() . '/');
+define('PUBLIC_DIR', THEME_ROOT.'public/');
+define('STYLES_DIR', PUBLIC_DIR.'styles/');
+define('SCRIPTS_DIR', PUBLIC_DIR.'js/');
+define('IMAGES_DIR', PUBLIC_DIR.'img/');
