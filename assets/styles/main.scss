@@ -1,23 +1,49 @@
 //
-// Modules
-// -------
-// Modules are sass files that don't directly result in any code being outputted.
-// So any variables, placeholders, and mixins belong here.
+// Vars
+// ====
+// Store any configuraion variables in here.
 //
 
-@import "modules/vars";
-@import "modules/placeholders";
-@import "modules/mixins";
+@import "vars/colors";
+@import "vars/typography";
+@import "vars/grid";
+@import "vars/misc";
+
+//
+// Placeholders
+// ============
+// Placeholders are used a s a lind of bootstrap for common elements.
+//
+// For example:
+// ------------
+// _forms.scss contains placeholders ofr the basic form elements (structured
+// in a BEM style) that we can then extend classes with. This means that we can
+// 'style' the different forms in individual - page relevant - partials, but
+// keep the base styles all together in one file. It's pretty handy!
+//
+
+@import "placeholders/clearfix";
+@import "placeholders/grid";
+@import "placeholders/typography";
+@import "placeholders/buttons";
+@import "placeholders/forms";
+
+//
+// Mixins
+// ======
+// Nothing out of the ordinary here. Just a small library of mixins that come in
+// handy every now and then.
+//
+
+
 
 //
 // Compass
-// -------
-// Include any compass modules here.
-// See http://compass-style.org/reference/compass/ for reference.
+// =======
+// I only use compass for sprites currently.
 //
 
-@import "compass/css3";
-@import "compass/typography";
+@import "compass/utilities/sprites";
 
 //
 // Partials
@@ -27,11 +53,10 @@
 //
 
 @import "partials/reset";
-@import "partials/grid";
 @import "partials/typography";
-@import "partials/buttons";
-@import "partials/forms";
+@import "partials/layout";
 @import "partials/header";
+@import "partials/home";
 @import "partials/footer";
 @import "partials/sidebar";
 
