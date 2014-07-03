@@ -60,7 +60,8 @@ gulp.task('styles', function() {
             image: paths.assets.img.dir
         }))
         .pipe(autoprefix('last 4 version'))
-        .pipe(gulp.dest(paths.public.styles));
+        .pipe(gulp.dest(paths.public.styles))
+        .pipe(notify('Styles task complete.'));
 });
 
 //
@@ -73,7 +74,8 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
     gulp.src(paths.assets.js.files)
         .pipe(concat('main.min.js'))
-        .pipe(gulp.dest(paths.public.js));
+        .pipe(gulp.dest(paths.public.js))
+        .pipe(notify('JS task complete.'));
 });
 
 //
@@ -86,7 +88,8 @@ gulp.task('js', function() {
 gulp.task('img', function() {
     gulp.src(paths.assets.img.files)
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest(paths.public.img));
+        .pipe(gulp.dest(paths.public.img))
+        .pipe(notify('Images task complete.'));
 });
 
 //
@@ -97,7 +100,8 @@ gulp.task('img', function() {
 
 gulp.task('clean', function() {
   return gulp.src([paths.public.styles, paths.public.js, paths.public.img], {read: false})
-    .pipe(clean());
+    .pipe(clean())
+    .pipe(notify('Cleaning task complete.'));
 });
 
 //
