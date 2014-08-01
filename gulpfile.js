@@ -104,6 +104,16 @@ gulp.task('clean', function() {
 });
 
 //
+// Cache clearing task
+// -------------------
+// Destroy the cache so that image name changes take effect etc
+//
+
+gulp.task('cache', function() {
+    cache.clearAll();
+});
+
+//
 // Watch task
 // ----------
 // Watches the different directores for changes and then
