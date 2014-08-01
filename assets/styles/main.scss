@@ -1,4 +1,15 @@
 //
+// Jeet
+// ====
+// We use Jeet for grid layout as it sepereates content from styling nicely,
+// and accomplishes what my original grid was doing and more.
+//
+
+@import 'jeet/settings';
+@import 'jeet/functions';
+@import 'jeet/grid';
+
+//
 // Vars
 // ====
 // Store any configuraion variables in here.
@@ -6,7 +17,6 @@
 
 @import "vars/colors";
 @import "vars/typography";
-@import "vars/grid";
 @import "vars/misc";
 
 //
@@ -23,7 +33,6 @@
 //
 
 @import "placeholders/clearfix";
-@import "placeholders/grid";
 @import "placeholders/typography";
 @import "placeholders/buttons";
 @import "placeholders/forms";
@@ -65,3 +74,5 @@
 // ------
 // Any thrid party assets that aren't available through Bower.
 //
+
+// @import "vendor/xxx.scss";
