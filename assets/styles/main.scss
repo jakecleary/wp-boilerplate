@@ -1,4 +1,15 @@
 //
+// Jeet
+// ====
+// We use Jeet for grid layout as it seperates content from styling nicely,
+// and accomplishes what my original grid was doing and more.
+//
+
+@import 'jeet/settings';
+@import 'jeet/functions';
+@import 'jeet/grid';
+
+//
 // Vars
 // ====
 // Store any configuraion variables in here.
@@ -6,24 +17,23 @@
 
 @import "vars/colors";
 @import "vars/typography";
-@import "vars/grid";
 @import "vars/misc";
 
 //
 // Placeholders
 // ============
-// Placeholders are used a s a lind of bootstrap for common elements.
+// Placeholders are used as a kind of bootstrap for common elements.
 //
 // For example:
 // ------------
-// _forms.scss contains placeholders ofr the basic form elements (structured
-// in a BEM style) that we can then extend classes with. This means that we can
-// 'style' the different forms in individual - page relevant - partials, but
-// keep the base styles all together in one file. It's pretty handy!
+// _forms.scss contains placeholder styles for the basic form elements
+// (structured in a BEM style) that we can then extend classes with. This means
+// that we can 'style' the different forms in individual, page specific,
+// partials, but keep the base styles all together in one file.
+// It's pretty handy!
 //
 
 @import "placeholders/clearfix";
-@import "placeholders/grid";
 @import "placeholders/typography";
 @import "placeholders/buttons";
 @import "placeholders/forms";
@@ -35,7 +45,9 @@
 // handy every now and then.
 //
 
-
+@import "mixins/helpers";
+@import "mixins/breakpoints.scss";
+@import "mixins/font-awesome.scss";
 
 //
 // Compass
@@ -65,3 +77,5 @@
 // ------
 // Any thrid party assets that aren't available through Bower.
 //
+
+// @import "vendor/xxx.scss";
