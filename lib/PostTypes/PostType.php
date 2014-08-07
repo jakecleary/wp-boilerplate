@@ -51,7 +51,7 @@ class PostType implements PostTypeInterface {
      * @param  Object $query The $wp_query object
      * @return String The HTML pagination
      */
-    public function paginate($query)
+    public static function paginate($query)
     {
         $big = 999999999; // need an unlikely integer
 
