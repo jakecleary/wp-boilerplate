@@ -1,6 +1,8 @@
 <?php
 
-class CustomPostType extends PostTypeInterface {
+abstract class CustomPostType extends PostTypeInterface {
+
+    protected $instance, $slug;
 
     /**
      * Register the post type
@@ -9,6 +11,8 @@ class CustomPostType extends PostTypeInterface {
      */
     public function __construct(String $slug, Array $args)
     {
+        $this->slug = $slug;
+
         // Check which args have been set and assign defualts if needs be
         $args['singular']    ? $singular = $args['singular']       : $singular = $name;
         $args['plural']      ? $plural = $args['plural']           : $name;
@@ -45,4 +49,19 @@ class CustomPostType extends PostTypeInterface {
             ]
         );
     }
+
+    /**
+     * Grab all posts of this type with a WP_QUERY
+     * @return {WP_Query} The query object
+     */
+    public function all() {
+        return new WP_Query([
+            'post_type' =>  $this->slug
+        ]);
+    }
+
+    /**
+     * Children class must create an instance
+     */
+    public abstract static function instance();
 }
