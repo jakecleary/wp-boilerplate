@@ -13,3 +13,10 @@ require_once('lib/_config.php');
 require_once('lib/helpers.php');
 require_once('lib/wpSpecific.php');
 require_once('lib/bodyClasses.php');
+
+// Classes
+require_once('lib/PostTypes/PostTypeInterface.php');
+require_once('lib/PostTypes/PostType.php');
+require_once('lib/PostTypes/CustomPostTypeInterface.php');
+require_once('lib/PostTypes/CustomPostType.php');
+require_once('lib/postTypes.php');
