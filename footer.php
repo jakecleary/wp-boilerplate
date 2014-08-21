@@ -1,5 +1,5 @@
         </main>
-        <footer class="page-footer">
+        <footer class="page-footer" role="contentinfo">
 
         </footer>
     </div>
