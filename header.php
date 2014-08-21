@@ -23,7 +23,15 @@
 </head>
 <body class="">
     <div class="page-wrapper">
-        <header class="page-header">
-
+        <header class="page-header" role="banner">
+            <?php
+                /* NAVIGATION and WAI-ARIA
+                * ========================
+                * Anywhere you display content that contains links to navigate this document and/or related documents you should include the 'navigation' aria tag to help screen readers understand the contnent.
+                * For example, the main navigation for this document may look a little something like:
+                *
+                * <nav role="navigation"> ... </nav>
+                */
+            ?>
         </header>
-        <main class="page-content">
+        <main class="page-content" role="main">
