@@ -60,8 +60,8 @@ gulp.task('styles', function() {
 });
 
 /**
- * Javascript task
- * ===============
+ * Scripts task
+ * ============
  * Grabs everything inside the scripts directory, concantinates and minifies,
  * and then outputs them to the target directory.
  */
@@ -73,8 +73,8 @@ gulp.task('scripts', function() {
 });
 
 /**
- * Image task
- * ----------
+ * Images task
+ * ===========
  * Grabs everything inside the img directory, optimises each image,
  * and then outputs them to the target directory.
  */
@@ -86,7 +86,7 @@ gulp.task('images', function() {
 
 /**
  * Cleaner task
- * ------------
+ * ============
  * This simply deletes all of the main assets folders.
  */
 gulp.task('clean', function(x) {
@@ -95,7 +95,7 @@ gulp.task('clean', function(x) {
 
 /**
  * Cache clearing task
- * -------------------
+ * ===================
  * Destroy the cache so that image name changes take effect etc
  */
 gulp.task('cache', function() {
@@ -104,7 +104,7 @@ gulp.task('cache', function() {
 
 /**
  * Watch task
- * ----------
+ * ==========
  * Watches the different directores for changes and then
  * runs their relevant tasks and livereloads.
  */
@@ -117,7 +117,7 @@ gulp.task('watch', function() {
 
 /**
  * Deploy task
- * -----------
+ * ===========
  * Runs all of the main tasks while minifying/uglifying everything.
  */
 gulp.task('deploy', ['clean'], function() {
@@ -140,8 +140,8 @@ gulp.task('deploy', ['clean'], function() {
 });
 
 /**
- * Defualt task
- * ------------
+ * Default task
+ * ============
  * Runs every task, and then watches files for changes.
  */
 gulp.task('default', ['clean'], function() {
