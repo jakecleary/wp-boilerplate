@@ -1,31 +1,48 @@
-$fontawesome_path: "." !default;
-
-@font-face {
-    font-family: 'FontAwesome';
-    src: font-url('#{$fontawesome_path}/fontawesome-webfont.eot');
-    src: font-url('#{$fontawesome_path}/fontawesome-webfont.eot?#iefix') format("embedded-opentype"), font-url('#{$fontawesome_path}/fontawesome-webfont.woff') format("woff"), font-url('#{$fontawesome_path}/fontawesome-webfont.ttf') format("truetype");
-    font-weight: normal;
+%fa-icon {
+    display: inline-block;
+    font-family: FontAwesome;
     font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin icon( $icon ) {
-    @extend %icon;
-    content: $icon;
-}
-
-@mixin icon-before( $icon, $padding: 0 ) {
-    &:before {
-        @include icon( $icon );
-        padding-right: $padding;
+@mixin fa-icon($icon, $placement) {
+    @if($placement === 'after') {
+        &:after {
+            @extend %fa-icon;
+            content: $icon;
+        }
+    } @elseif ($placement === 'before') {
+        &:before {
+            @extend %fa-icon;
+            content: $icon;
+        }
+    } @else {
+        @extend %fa-icon;
+        content: $icon;
     }
 }
 
-%icon {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
+@mixin fa-list($icon, $color: inherit) {
+    padding-left: 0;
+    margin-left: 2.14285714em;
+    list-style-type: none;
+    li {
+        position: relative;
+        &:before {
+            @extend %fa-icon;
+            position: absolute;
+            left: -2.14285714em;
+            width: 2.14285714em;
+            top: 0.14285714em;
+            text-align: center;
+            content: $icon;
+            color: $color;
+        }
+    }
 }
 
 $icon-glass: "\f000";
