@@ -1,9 +1,0 @@
-preferred_syntax = :scss
-sass_dir = 'assets/styles'
-css_dir = 'public/styles'
-images_dir = 'assets/img'
-generated_images_dir = 'public/img'
-javascripts_dir = 'assets/js'
-relative_assets = true
-line_comments = true
-output_style = :expanded

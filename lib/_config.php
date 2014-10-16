@@ -18,5 +18,5 @@ $theme_config = array(
 define('THEME_ROOT', get_template_directory_uri() . '/');
 define('PUBLIC_DIR', THEME_ROOT.'public/');
 define('STYLES_DIR', PUBLIC_DIR.'styles/');
-define('SCRIPTS_DIR', PUBLIC_DIR.'js/');
-define('IMAGES_DIR', PUBLIC_DIR.'img/');
+define('SCRIPTS_DIR', PUBLIC_DIR.'scripts/');
+define('IMAGES_DIR', PUBLIC_DIR.'images/');

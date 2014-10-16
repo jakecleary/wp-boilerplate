@@ -50,14 +50,6 @@
 @import "mixins/font-awesome.scss";
 
 //
-// Compass
-// =======
-// I only use compass for sprites currently.
-//
-
-@import "compass/utilities/sprites";
-
-//
 // Partials
 // --------
 // Here we import all our partials, starting with the most generic ones.
@@ -71,11 +63,3 @@
 @import "partials/home";
 @import "partials/footer";
 @import "partials/sidebar";
-
-//
-// Vendor
-// ------
-// Any thrid party assets that aren't available through Bower.
-//
-
-// @import "vendor/xxx.scss";

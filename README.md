@@ -19,7 +19,7 @@ feeling adventurous!
 * Node Package Manager for any dependency management.
 * Gulp for handling:
     * SASS to CSS concantination/minification.
-    * JS concantination/minification.
+    * Scripts concantination/minification.
     * Image optimisation.
 * Plugins managed through composer. By default I include:
     * [Advanced Custom Fields](https://github.com/elliotcondon/acf)
@@ -35,7 +35,7 @@ The theme has the following structure:
 .
 ├── assets
 │   ├── img
-│   ├── js
+│   ├── scripts
 │   │   ├── src
 │   │   │   ├── main.js
 │   │   │   └── ...
@@ -78,10 +78,7 @@ The theme has the following structure:
 │   ├── helpers.php
 │   └── wpSpecific.php
 ├── public
-│   ├── js
-│   │   └── main.min.js
-│   └── styles
-│       └── main.css
+│   └── ...
 ├── 404.php
 ├── README.md
 ├── composer.json

@@ -1,7 +1,7 @@
 // Dependencies
 var gulp = require('gulp'),
     // CSS stuff
-    compass = require('gulp-compass'),
+    sass = require('gulp-sass'),
     autoprefix = require('gulp-autoprefixer'),
     minify = require('gulp-minify-css'),
     // Javascript stuff
@@ -13,12 +13,8 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     // Other
     util = require('gulp-util'),
-    clean = require('gulp-clean'),
-    notify = require('gulp-notify'),
-    // Live reload
-    livereload = require('gulp-livereload'),
-    lr = require('tiny-lr'),
-    server = lr();
+    del = require('del'),
+    notify = require('gulp-notify');
 
 // Assets
 var paths = {
@@ -27,147 +23,127 @@ var paths = {
             dir: 'assets/styles',
             files: 'assets/styles/**/*.scss'
         },
-        js: {
-            dir: 'assets/js/',
-            files: 'assets/js/**/*.js'
+        scripts: {
+            dir: 'assets/scripts/',
+            files: 'assets/scripts/**/*.js'
         },
-        img: {
-            dir: 'assets/img',
-            files: 'assets/img/**/*'
+        images: {
+            dir: 'assets/images',
+            files: 'assets/images/**/*'
         }
     },
     public: {
         styles: 'public/styles',
-        js: 'public/js',
-        img: 'public/img',
+        scripts: 'public/scripts',
+        images: 'public/images',
+        del: [
+            'public/styles/*',
+            'public/scripts/*',
+            'public/images/*'
+        ]
     }
 }
 
-//
-// Styles task
-// -----------------
-// Grabs everything inside the styles & sprites directories, concantinates
-// and compiles scss, builds sprites, and then outputs them to their
-// respective target directories.
-//
-
+/**
+ * Styles task
+ * ===========
+ * Grabs everything inside the styles & sprites directories, concantinates
+ * and compiles scss, builds sprites, and then outputs them to their
+ * respective target directories.
+ */
 gulp.task('styles', function() {
     gulp.src(paths.assets.styles.files)
-        .pipe(compass({
-            config_file: './config.rb',
-            sass: paths.assets.styles.dir,
-            css: paths.public.styles,
-            image: paths.assets.img.dir
-        }))
+        .pipe(sass())
         .pipe(autoprefix('last 4 version'))
         .pipe(gulp.dest(paths.public.styles))
         .pipe(notify('Styles task complete.'));
 });
 
-//
-// Javascript task
-// ---------------
-// Grabs everything inside the js directory, concantinates and minifies,
-// and then outputs them to the target directory.
-//
-
-gulp.task('js', function() {
-    gulp.src(paths.assets.js.files)
+/**
+ * Javascript task
+ * ===============
+ * Grabs everything inside the scripts directory, concantinates and minifies,
+ * and then outputs them to the target directory.
+ */
+gulp.task('scripts', function() {
+    gulp.src(paths.assets.scripts.files)
         .pipe(concat('main.min.js'))
-        .pipe(gulp.dest(paths.public.js))
-        .pipe(notify('JS task complete.'));
+        .pipe(gulp.dest(paths.public.scripts))
+        .pipe(notify('Scripts task complete.'));
 });
 
-//
-// Image task
-// ----------
-// Grabs everything inside the img directory, optimises each image,
-// and then outputs them to the target directory.
-//
-
-gulp.task('img', function() {
-    gulp.src(paths.assets.img.files)
+/**
+ * Image task
+ * ----------
+ * Grabs everything inside the img directory, optimises each image,
+ * and then outputs them to the target directory.
+ */
+gulp.task('images', function() {
+    gulp.src(paths.assets.images.files)
         .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-        .pipe(gulp.dest(paths.public.img));
+        .pipe(gulp.dest(paths.public.images));
 });
 
-//
-// Cleaner task
-// ------------
-// This simply deletes all of the main assets folders.
-//
-
-gulp.task('clean', function() {
-  return gulp.src([paths.public.styles, paths.public.js, paths.public.img], {read: false})
-    .pipe(clean())
-    .pipe(notify('Cleaning task complete.'));
+/**
+ * Cleaner task
+ * ------------
+ * This simply deletes all of the main assets folders.
+ */
+gulp.task('clean', function(x) {
+    del(paths.public.del, x);
 });
 
-//
-// Cache clearing task
-// -------------------
-// Destroy the cache so that image name changes take effect etc
-//
-
+/**
+ * Cache clearing task
+ * -------------------
+ * Destroy the cache so that image name changes take effect etc
+ */
 gulp.task('cache', function() {
     cache.clearAll();
 });
 
-//
-// Watch task
-// ----------
-// Watches the different directores for changes and then
-// runs their relevant tasks and livereloads.
-//
-
+/**
+ * Watch task
+ * ----------
+ * Watches the different directores for changes and then
+ * runs their relevant tasks and livereloads.
+ */
 gulp.task('watch', function() {
     // Run the appropriate task when assets change
     gulp.watch(paths.assets.styles.files, ['styles']);
-    gulp.watch(paths.assets.js.files, ['js']);
-    gulp.watch(paths.assets.img.files, ['img']);
-    var server = livereload();
-    // Refresh the browser when anything changes
-    gulp.watch('*').on('change', function(file) {
-        server.changed(file.path);
-    });
+    gulp.watch(paths.assets.scripts.files, ['scripts']);
+    gulp.watch(paths.assets.images.files, ['images']);
 });
 
-//
-// Deploy task
-// -----------
-// Runs all of the main tasks, without activating livereload.
-//
-
+/**
+ * Deploy task
+ * -----------
+ * Runs all of the main tasks while minifying/uglifying everything.
+ */
 gulp.task('deploy', ['clean'], function() {
-    // Run the styles task, but minify the output
+    // Styles
     gulp.src(paths.assets.styles.files)
-        .pipe(compass({
-            config_file: './config.rb',
-            sass: paths.assets.styles.dir,
-            css: paths.public.styles,
-            image: paths.assets.img.dir
-        }))
+        .pipe(sass())
         .pipe(autoprefix('last 4 version'))
         .pipe(minify())
         .pipe(gulp.dest(paths.public.styles));
 
-    // Run the JS task, but strip out debugging code and the uglify it
-    gulp.src(paths.assets.js.files)
+    // Scripts
+    gulp.src(paths.assets.scripts.files)
         .pipe(concat('main.min.js'))
         .pipe(strip())
         .pipe(uglify())
-        .pipe(gulp.dest(paths.public.js));
+        .pipe(gulp.dest(paths.public.scripts));
 
-    // Run the image task
-    gulp.start('img');
+    // Images
+    gulp.start('images');
 });
 
-//
-// Defualt task
-// ------------
-// Runs every task, and then watches files for changes.
-//
-
+/**
+ * Defualt task
+ * ------------
+ * Runs every task, and then watches files for changes.
+ */
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'js', 'img', 'watch');
+    gulp.start('styles', 'scripts', 'images', 'watch');
 });
