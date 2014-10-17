@@ -10,39 +10,37 @@ class CustomPostType extends PostType implements CustomPostTypeInterface {
     public function __construct($slug, array $args)
     {
         // Check which args have been set and assign defualts if needs be
-        $args['singular']    ? $singular = $args['singular']       : $singular = $name;
-        $args['plural']      ? $plural = $args['plural']           : $name;
-        $args['rewrite']     ? $rewrite = $args['rewrite']         : $name;
-        $args['icon']        ? $icon = $args['icon']               : 'admin-post';
-        $args['supports']    ? $supports = $args['supports']       : ['title', 'editor'];
-        $args['public']      ? $public = $args['public']           : true;
-        $args['has_archive'] ? $has_archive = $args['has_archive'] : true;
+        isset($args['singular'])    ? $singular = $args['singular']       : $singular = $slug;
+        isset($args['plural'])      ? $plural = $args['plural']           : $plural = $slug;
+        isset($args['rewrite'])     ? $rewrite = $args['rewrite']         : $rewrite = $slug;
+        isset($args['icon'])        ? $icon = $args['icon']               : $icon = 'admin-post';
+        isset($args['supports'])    ? $supports = $args['supports']       : $supports = ['title', 'editor'];
+        isset($args['public'])      ? $public = $args['public']           : $public = true;
+        isset($args['has_archive']) ? $has_archive = $args['has_archive'] : $has_archive = true;
 
         // Register the post type based on the supplied args
-        register_post_type($slug,
-            [
-                'labels' => [
-                    'name'               => $plural,
-                    'singular_name'      => $singular,
-                    'menu_name'          => $plural,
-                    'name_admin_bar'     => $singular,
-                    'add_new'            => 'Add New',
-                    'add_new_item'       => 'Add New ' . $singular,
-                    'new_item'           => 'New ' . $singular,
-                    'edit_item'          => 'Edit ' . $singular . ' Details',
-                    'view_item'          => 'View ' . $singular,
-                    'all_items'          => 'All ' . $plural,
-                    'search_items'       => 'Search ' . $plural,
-                    'parent_item_colon'  => 'Parent ' . $plural . ':',
-                    'not_found'          => 'No ' . $plural . ' found.',
-                    'not_found_in_trash' => 'No ' . $plural . ' found in Trash.'
-                ],
-                'public'      => $public,
-                'has_archive' => $has_archive,
-                'rewrite'     => array('slug' => $rewrite),
-                'menu_icon'   => 'dashicons-' . $icon,
-                'supports'    => $supports
-            ]
-        );
+        register_post_type($slug, [
+            'labels' => [
+                'name'               => ucwords($plural),
+                'singular_name'      => ucwords($singular),
+                'menu_name'          => ucwords($plural),
+                'name_admin_bar'     => ucwords($singular),
+                'add_new'            => 'Add New',
+                'add_new_item'       => 'Add New ' . $singular,
+                'new_item'           => 'New ' . $singular,
+                'edit_item'          => 'Edit ' . $singular . ' Details',
+                'view_item'          => 'View ' . $singular,
+                'all_items'          => 'All ' . $plural,
+                'search_items'       => 'Search ' . $plural,
+                'parent_item_colon'  => 'Parent ' . $plural . ':',
+                'not_found'          => 'No ' . $plural . ' found.',
+                'not_found_in_trash' => 'No ' . $plural . ' found in Trash.'
+            ],
+            'public'      => $public,
+            'has_archive' => $has_archive,
+            'rewrite'     => array('slug' => $rewrite),
+            'menu_icon'   => 'dashicons-' . $icon,
+            'supports'    => $supports
+        ]);
     }
 }
