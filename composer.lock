@@ -4,23 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eb93dae28ceb5c94d3a6b5dc0e9db0c3",
+    "hash": "b8f68a933009955e85ea687a53ece62d",
     "packages": [
-
-    ],
-    "packages-dev": [
         {
             "name": "composer/installers",
-            "version": "v1.0.15",
+            "version": "v1.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "8e6a72a78f6cfd537fde3350720dfdc9ae3c5621"
+                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/8e6a72a78f6cfd537fde3350720dfdc9ae3c5621",
-                "reference": "8e6a72a78f6cfd537fde3350720dfdc9ae3c5621",
+                "url": "https://api.github.com/repos/composer/installers/zipball/74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
+                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
                 "shasum": ""
             },
             "replace": {
@@ -51,8 +48,7 @@
                 {
                     "name": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
-                    "homepage": "https://github.com/shama",
-                    "role": "Developer"
+                    "homepage": "https://github.com/shama"
                 }
             ],
             "description": "A multi-framework Composer library installer",
@@ -68,6 +64,7 @@
                 "annotatecms",
                 "bitrix",
                 "cakephp",
+                "chef",
                 "codeigniter",
                 "concrete5",
                 "croogo",
@@ -87,6 +84,7 @@
                 "phpbb",
                 "piwik",
                 "ppi",
+                "puppet",
                 "roundcube",
                 "shopware",
                 "silverstripe",
@@ -96,31 +94,53 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-06-23 16:25:28"
+            "time": "2014-08-18 20:00:12"
         },
         {
-            "name": "wpackagist-plugin/advanced-custom-fields",
-            "version": "4.3.8",
+            "name": "jarednova/timber",
+            "version": "0.18.1",
             "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/advanced-custom-fields/",
-                "reference": "trunk"
+                "type": "git",
+                "url": "https://github.com/jarednova/timber.git",
+                "reference": "978d4b117afe365c536c04c94370a9619ce6402a"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/advanced-custom-fields.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://api.github.com/repos/jarednova/timber/zipball/978d4b117afe365c536c04c94370a9619ce6402a",
+                "reference": "978d4b117afe365c536c04c94370a9619ce6402a",
+                "shasum": ""
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0",
+                "php": ">=5.3.0"
             },
-            "replace": {
-                "wpackagist/advanced-custom-fields": "self.version"
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "wordpress-plugin",
-            "homepage": "http://wordpress.org/plugins/advanced-custom-fields/"
-        },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jared Novack",
+                    "email": "jared@upstatement.com",
+                    "homepage": "http://upstatement.com"
+                }
+            ],
+            "description": "Plugin to write WordPress themes w Object-Oriented Code and the Twig Template Engine",
+            "homepage": "http://timber.upstatement.com",
+            "keywords": [
+                "templating",
+                "themes",
+                "timber",
+                "twig"
+            ],
+            "time": "2014-05-13 12:48:28"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "wpackagist-plugin/ajax-thumbnail-rebuild",
             "version": "1.12",
@@ -191,17 +211,10 @@
             "homepage": "http://wordpress.org/plugins/duplicate-post/"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "stability-flags": [],
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
 }

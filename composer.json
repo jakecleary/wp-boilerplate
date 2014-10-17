@@ -21,10 +21,12 @@
             "url": "http://wpackagist.org"
         }
     ],
+    "require": {
+        "jarednova/timber": "*"
+    },
     "require-dev": {
         "wpackagist-plugin/duplicate-post": "*",
         "wpackagist-plugin/ajax-thumbnail-rebuild": "*",
-        "wpackagist-plugin/advanced-custom-fields": "4.*",
         "wpackagist-plugin/bulk-creator": "1.*"
     },
     "extra": {
