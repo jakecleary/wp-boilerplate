@@ -13,6 +13,7 @@ require_once('lib/_config.php');
 require_once('lib/helpers.php');
 require_once('lib/wpSpecific.php');
 require_once('lib/bodyClasses.php');
+require_once('lib/timber.php');
 
 // Classes
 require_once('lib/PostTypes/PostTypeInterface.php');
