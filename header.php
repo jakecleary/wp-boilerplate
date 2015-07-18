@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="<?php print STYLES_DIR . 'main.css'; ?>">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <link rel="shortcut icon" href="<?php echo IMGPATH; ?>favicon.png">
+    <link rel="apple-touch-icon" href="<?php echo IMGPATH; ?>apple-touch-icon.png">
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="<?php print SCRIPTS_DIR . 'main.min.js'; ?>"></script>
 
